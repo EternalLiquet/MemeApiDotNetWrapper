@@ -1,11 +1,39 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>LQ.MemeApiDotNetWrapper</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Liquet</Authors>
+    <Company>LQ LLC</Company>
+    <Product>A C# Wrapper For The Reddit Meme API</Product>
+    <Description>Does your application make use of random memes from Reddit? If this is the case, you might use this [API](https://github.com/D3vd/Meme_Api) to get your memes. That's fine and dandy, but what if you don't want to write your own implementation of it? That's where this wrapper comes in. Call one function and get your meme easily! Original API found here: https://github.com/D3vd/Meme_Api</Description>
+     <Summary>Does your application make use of random memes from Reddit? If this is the case, you might use this [API](https://github.com/D3vd/Meme_Api) to get your memes. That's fine and dandy, but what if you don't want to write your own implementation of it? That's where this wrapper comes in. Call one function and get your meme easily! Original API found here: https://github.com/D3vd/Meme_Api</Summary>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/EternalLiquet/MemeApiDotNetWrapper</PackageProjectUrl>
+    <PackageIcon>reddit.jpg</PackageIcon>
+    <RepositoryUrl>https://github.com/EternalLiquet/MemeApiDotNetWrapper</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>Meme, Meme API, Reddit, Reddit Moment, Reddit Meme, API, API Wrapper</PackageTags>
+    <PackageReleaseNotes>MVP</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\MemeApiDotNetWrapper\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\MemeApiDotNetWrapper\images\reddit.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
