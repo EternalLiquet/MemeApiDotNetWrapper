@@ -14,12 +14,14 @@ namespace MemeApiDotNetWrapper
             httpClient = new HttpClient();
         }
 
-        public async Task<Meme> GetMeme()
+        public async Task<Meme> GetMeme(string subreddit = null)
         {
-            HttpResponseMessage response = await httpClient.GetAsync("https://meme-api.herokuapp.com/gimme");
+            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
+            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            HttpResponseMessage response = await httpClient.GetAsync(memeApiUrl);
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Something has gone wrong, the API might be down. Please check at: https://meme-api.herokuapp.com/gimme");
+                throw new Exception($"Something has gone wrong, the API might be down. Please check at: {memeApiUrl}");
             }
             else
             {

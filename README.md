@@ -40,6 +40,43 @@ namespace Example
 }
 ```
 
+### Option: Specifying Subreddit
+
+```cs
+using System;
+using MemeApiDotNetWrapper;
+
+namespace Example
+{
+    public class CoolClass
+    {
+        public async void GetMeme()
+        {
+            MemeMachine memeMachine = new MemeMachine();
+            var meme = await memeMachine.GetMeme("Otonokizaka");
+            Console.WriteLine(meme.PostLink); // "https://redd.it/lndbu6"
+            Console.WriteLine(meme.SubReddit); // "Otonokizaka"
+            Console.WriteLine(meme.Title); // "*Panik mode activated*"
+            Console.WriteLine(meme.ImageUrl); // "https://i.redd.it/f4x7l0xe2fi61.jpg"
+            Console.WriteLine(meme.IsNsfw); // false
+            Console.WriteLine(meme.IsSpoiler); // false
+            Console.WriteLine(meme.AuthorUsername); // "ChrrisPBacon"
+            Console.WriteLine(meme.Upvotes); // 380
+            Console.WriteLine(meme.Preview); /* [
+                                                    PreviewURL108Width: "https://preview.redd.it/f4x7l0xe2fi61.jpg?width=108\u0026crop=smart\u0026auto=webp\u0026s=0fea0b6643a51fac5efcc2bde5a01f92d67a44a9",
+                                                    PreviewURL216Width: "https://preview.redd.it/f4x7l0xe2fi61.jpg?width=216\u0026crop=smart\u0026auto=webp\u0026s=c7bb22a5816b3b24e6d75013398ff30821958e3a",
+                                                    PreviewURL320Width: "https://preview.redd.it/f4x7l0xe2fi61.jpg?width=320\u0026crop=smart\u0026auto=webp\u0026s=0d0bd71c16407e03be5dba71dd22373755d0c95a",
+                                                    PreviewURL640Width: "https://preview.redd.it/f4x7l0xe2fi61.jpg?width=640\u0026crop=smart\u0026auto=webp\u0026s=b65873a26709ca86916b9421c94502b613702eca",
+                                                    PreviewURL960Width: "https://preview.redd.it/f4x7l0xe2fi61.jpg?width=960\u0026crop=smart\u0026auto=webp\u0026s=e0d746101d13bc725e4763728838065e1b635634",
+                                                    PreviewURL1080Width: "https://preview.redd.it/f4x7l0xe2fi61.jpg?width=1080\u0026crop=smart\u0026auto=webp\u0026s=fda15a8f12b41384a602a81699b9ed7a53cfc646"
+                                                ]
+                                                *Additional Note: Previews go up to 1080 Width, depending on availability.
+                                            */
+        }
+    }
+}
+```
+
 ### Resulting Class Structure:
 
 ```javascript
