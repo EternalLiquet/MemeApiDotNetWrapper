@@ -15,8 +15,8 @@
     <RepositoryUrl>https://github.com/EternalLiquet/MemeApiDotNetWrapper</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Meme, Meme API, Reddit, Reddit Moment, Reddit Meme, API, API Wrapper</PackageTags>
-    <PackageReleaseNotes>MVP</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Create flow for multiple memes to be returned</PackageReleaseNotes>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
