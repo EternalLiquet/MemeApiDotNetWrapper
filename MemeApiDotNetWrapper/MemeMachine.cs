@@ -29,10 +29,11 @@ namespace MemeApiDotNetWrapper
             }
         }
 
-        public async Task<MemeList> GetMemes(int count = 10)
+        public async Task<MemeList> GetMemes(int count = 10, string subreddit = null)
         {
             if (count > 50) count = 50;
             string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
+            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
             memeApiUrl += $"/{count}";
             HttpResponseMessage response = await httpClient.GetAsync(memeApiUrl);
             if (!response.IsSuccessStatusCode)

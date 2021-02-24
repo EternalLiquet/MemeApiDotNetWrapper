@@ -7,7 +7,7 @@
     <Authors>Liquet</Authors>
     <Company>LQ LLC</Company>
     <Product>A C# Wrapper For The Reddit Meme API</Product>
-    <Description>Does your application make use of random memes from Reddit? If this is the case, you might use this [API](https://github.com/D3vd/Meme_Api) to get your memes. That's fine and dandy, but what if you don't want to write your own implementation of it? That's where this wrapper comes in. Call one function and get your meme easily! Original API found here: https://github.com/D3vd/Meme_Api</Description>
+    <Description>Does your application make use of random memes from Reddit? If this is the case, you might use this API (https://github.com/D3vd/Meme_Api) to get your memes. That's fine and dandy, but what if you don't want to write your own implementation of it? That's where this wrapper comes in. Call one function and get your meme easily! Original API found here: https://github.com/D3vd/Meme_Api</Description>
      <Summary>Does your application make use of random memes from Reddit? If this is the case, you might use this [API](https://github.com/D3vd/Meme_Api) to get your memes. That's fine and dandy, but what if you don't want to write your own implementation of it? That's where this wrapper comes in. Call one function and get your meme easily! Original API found here: https://github.com/D3vd/Meme_Api</Summary>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/EternalLiquet/MemeApiDotNetWrapper</PackageProjectUrl>
@@ -15,8 +15,8 @@
     <RepositoryUrl>https://github.com/EternalLiquet/MemeApiDotNetWrapper</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Meme, Meme API, Reddit, Reddit Moment, Reddit Meme, API, API Wrapper</PackageTags>
-    <PackageReleaseNotes>Create flow for multiple memes to be returned</PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <PackageReleaseNotes>Multi meme can now specify subreddit, much needed documentation revision</PackageReleaseNotes>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -134,5 +134,65 @@ namespace MemeApiDotNetWrapper.Tests
                 Assert.That(meme.Previews, Is.Not.Null);
             }
         }
+
+        [Test]
+        public async Task MultipleMemesReturnsFromSubredditSuccessfully()
+        {
+            var memeList = await memeMachine.GetMemes(subreddit: "Otonokizaka");
+            Assert.That(memeList.Count, Is.EqualTo(10));
+            Assert.That(memeList.Memes, Is.Not.Null);
+            foreach (var meme in memeList.Memes)
+            {
+                Assert.That(meme.AuthorUsername, Is.Not.Null);
+                Assert.That(meme.ImageUrl, Is.Not.Null);
+                Assert.That(meme.IsNsfw, Is.Not.Null);
+                Assert.That(meme.IsSpoiler, Is.Not.Null);
+                Assert.That(meme.PostLink, Is.Not.Null);
+                Assert.That(meme.SubReddit, Is.EqualTo("Otonokizaka"));
+                Assert.That(meme.Title, Is.Not.Null);
+                Assert.That(meme.Upvotes, Is.Not.Null);
+                Assert.That(meme.Previews, Is.Not.Null);
+            }
+        }
+
+        [Test]
+        public async Task FiftyMemesReturnsFromSubredditSuccessfully()
+        {
+            var memeList = await memeMachine.GetMemes(50, "Otonokizaka");
+            Assert.That(memeList.Count, Is.EqualTo(50));
+            Assert.That(memeList.Memes, Is.Not.Null);
+            foreach (var meme in memeList.Memes)
+            {
+                Assert.That(meme.AuthorUsername, Is.Not.Null);
+                Assert.That(meme.ImageUrl, Is.Not.Null);
+                Assert.That(meme.IsNsfw, Is.Not.Null);
+                Assert.That(meme.IsSpoiler, Is.Not.Null);
+                Assert.That(meme.PostLink, Is.Not.Null);
+                Assert.That(meme.SubReddit, Is.EqualTo("Otonokizaka"));
+                Assert.That(meme.Title, Is.Not.Null);
+                Assert.That(meme.Upvotes, Is.Not.Null);
+                Assert.That(meme.Previews, Is.Not.Null);
+            }
+        }
+
+        [Test]
+        public async Task SubredditSpecificMemesCappedAtFifty()
+        {
+            var memeList = await memeMachine.GetMemes(100, "Otonokizaka");
+            Assert.That(memeList.Count, Is.EqualTo(50));
+            Assert.That(memeList.Memes, Is.Not.Null);
+            foreach (var meme in memeList.Memes)
+            {
+                Assert.That(meme.AuthorUsername, Is.Not.Null);
+                Assert.That(meme.ImageUrl, Is.Not.Null);
+                Assert.That(meme.IsNsfw, Is.Not.Null);
+                Assert.That(meme.IsSpoiler, Is.Not.Null);
+                Assert.That(meme.PostLink, Is.Not.Null);
+                Assert.That(meme.SubReddit, Is.EqualTo("Otonokizaka"));
+                Assert.That(meme.Title, Is.Not.Null);
+                Assert.That(meme.Upvotes, Is.Not.Null);
+                Assert.That(meme.Previews, Is.Not.Null);
+            }
+        }
     }
 }
