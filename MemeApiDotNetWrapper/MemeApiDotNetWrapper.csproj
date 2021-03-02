@@ -15,8 +15,8 @@
     <RepositoryUrl>https://github.com/EternalLiquet/MemeApiDotNetWrapper</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Meme, Meme API, Reddit, Reddit Moment, Reddit Meme, API, API Wrapper</PackageTags>
-    <PackageReleaseNotes>Multi meme can now specify subreddit, much needed documentation revision</PackageReleaseNotes>
-    <Version>1.3.0</Version>
+    <PackageReleaseNotes>Now includes a sync version of the base GetMemes() and made GetMemes() async say GetMemesAsync() for specification</PackageReleaseNotes>
+    <Version>1.5.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

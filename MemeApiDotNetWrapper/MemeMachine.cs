@@ -14,7 +14,7 @@ namespace MemeApiDotNetWrapper
             httpClient = new HttpClient();
         }
 
-        public async Task<Meme> GetMeme(string subreddit = null)
+        public async Task<Meme> GetMemeAsync(string subreddit = null)
         {
             string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
             if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
@@ -29,7 +29,22 @@ namespace MemeApiDotNetWrapper
             }
         }
 
-        public async Task<MemeList> GetMemes(int count = 10, string subreddit = null)
+        public Meme GetMeme(string subreddit = null)
+        {
+            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
+            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            HttpResponseMessage response = httpClient.GetAsync(memeApiUrl).Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception($"Something has gone wrong, the API might be down. Please check at: {memeApiUrl}");
+            }
+            else
+            {
+                return new Meme(JObject.Parse(response.Content.ReadAsStringAsync().Result));
+            }
+        }
+
+        public async Task<MemeList> GetMemesAsync(int count = 10, string subreddit = null)
         {
             if (count > 50) count = 50;
             string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
@@ -43,6 +58,23 @@ namespace MemeApiDotNetWrapper
             else
             {
                 return new MemeList(JObject.Parse(await response.Content.ReadAsStringAsync()));
+            }
+        }
+
+        public MemeList GetMemes(int count = 10, string subreddit = null)
+        {
+            if (count > 50) count = 50;
+            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
+            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            memeApiUrl += $"/{count}";
+            HttpResponseMessage response = httpClient.GetAsync(memeApiUrl).Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception($"Something has gone wrong, the API might be down. Please check at: {memeApiUrl}");
+            }
+            else
+            {
+                return new MemeList(JObject.Parse(response.Content.ReadAsStringAsync().Result));
             }
         }
     }
