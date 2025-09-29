@@ -7,6 +7,7 @@ namespace MemeApiDotNetWrapper
 {
     public class MemeMachine
     {
+        private const string memeApiBaseUrl = "https://meme-api.com/gimme";
         private static HttpClient httpClient;
 
         public MemeMachine()
@@ -16,8 +17,12 @@ namespace MemeApiDotNetWrapper
 
         public async Task<Meme> GetMemeAsync(string subreddit = null)
         {
-            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
-            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            string memeApiUrl = memeApiBaseUrl;
+            if (!string.IsNullOrEmpty(subreddit))
+            {
+                memeApiUrl += $"/{subreddit}";
+            }
+
             HttpResponseMessage response = await httpClient.GetAsync(memeApiUrl);
             if (!response.IsSuccessStatusCode)
             {
@@ -31,8 +36,12 @@ namespace MemeApiDotNetWrapper
 
         public Meme GetMeme(string subreddit = null)
         {
-            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
-            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            string memeApiUrl = memeApiBaseUrl;
+            if (!string.IsNullOrEmpty(subreddit))
+            {
+                memeApiUrl += $"/{subreddit}";
+            }
+
             HttpResponseMessage response = httpClient.GetAsync(memeApiUrl).Result;
             if (!response.IsSuccessStatusCode)
             {
@@ -46,9 +55,17 @@ namespace MemeApiDotNetWrapper
 
         public async Task<MemeList> GetMemesAsync(int count = 10, string subreddit = null)
         {
-            if (count > 50) count = 50;
-            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
-            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            if (count > 50)
+            {
+                count = 50;
+            }
+
+            string memeApiUrl = memeApiBaseUrl;
+            if (!string.IsNullOrEmpty(subreddit))
+            {
+                memeApiUrl += $"/{subreddit}";
+            }
+
             memeApiUrl += $"/{count}";
             HttpResponseMessage response = await httpClient.GetAsync(memeApiUrl);
             if (!response.IsSuccessStatusCode)
@@ -63,9 +80,17 @@ namespace MemeApiDotNetWrapper
 
         public MemeList GetMemes(int count = 10, string subreddit = null)
         {
-            if (count > 50) count = 50;
-            string memeApiUrl = "https://meme-api.herokuapp.com/gimme";
-            if (!string.IsNullOrEmpty(subreddit)) memeApiUrl += $"/{subreddit}";
+            if (count > 50)
+            {
+                count = 50;
+            }
+
+            string memeApiUrl = memeApiBaseUrl;
+            if (!string.IsNullOrEmpty(subreddit))
+            {
+                memeApiUrl += $"/{subreddit}";
+            }
+
             memeApiUrl += $"/{count}";
             HttpResponseMessage response = httpClient.GetAsync(memeApiUrl).Result;
             if (!response.IsSuccessStatusCode)
