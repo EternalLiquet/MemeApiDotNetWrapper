@@ -16,7 +16,8 @@
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Meme, Meme API, Reddit, Reddit Moment, Reddit Meme, API, API Wrapper</PackageTags>
     <PackageReleaseNotes>Now includes a sync version of the base GetMemes() and made GetMemes() async say GetMemesAsync() for specification</PackageReleaseNotes>
-    <Version>1.5.0</Version>
+    <Version>1.5.1</Version>
+    <Title>Meme API .NET Wrapper</Title>
   </PropertyGroup>
 
   <ItemGroup>
